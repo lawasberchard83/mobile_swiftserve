@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_change_password.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_change_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_dashboard.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_profile.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "com.swiftserve.app-mergeDebugResources-40:/layout/activity_dashboard.xml",
+        "source": "com.swiftserve.app-main-43:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-mergeDebugResources-40:\\layout\\activity_update_profile.xml",
+        "source": "C:\\Users\\l24y09w26\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_update_profile.xml"
+    },
+    {
+        "merged": "com.swiftserve.app-mergeDebugResources-40:/layout/activity_profile.xml",
+        "source": "com.swiftserve.app-main-43:/layout/activity_profile.xml"
+    }
+]

@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.gradle": true,
+        "**/build": true,
+        "**/.idea": true
+    },
+    "xml.validation.enabled": false,
+    "xml.validation.resolveExternalEntities": false,
+    "[xml]": {
+        "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "**/res/layout/*.xml": "xml",
+        "**/res/values/*.xml": "xml",
+        "**/res/drawable/*.xml": "xml",
+        "**/res/mipmap*/*.xml": "xml",
+        "AndroidManifest.xml": "xml"
+    }
+}

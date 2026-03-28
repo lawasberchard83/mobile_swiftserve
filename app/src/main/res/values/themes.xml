@@ -1,89 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Base Theme -->
-    <style name="Theme.SwiftServe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.SwiftServe" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorPrimaryVariant">@color/brand_primary_dark</item>
-        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
         <item name="colorSecondary">@color/brand_accent</item>
-        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
         <item name="android:colorBackground">@color/bg_dark</item>
         <item name="colorSurface">@color/bg_card</item>
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="android:statusBarColor">@color/bg_dark</item>
         <item name="android:navigationBarColor">@color/bg_dark</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="textAppearanceBodyLarge">@style/TextAppearance.SwiftServe.Body</item>
     </style>
 
-    <!-- Splash Theme -->
     <style name="Theme.SwiftServe.Splash" parent="Theme.SwiftServe">
         <item name="android:statusBarColor">@color/splash_background</item>
         <item name="android:windowBackground">@color/splash_background</item>
     </style>
 
-    <!-- Auth Theme (transparent status bar style) -->
     <style name="Theme.SwiftServe.Auth" parent="Theme.SwiftServe">
         <item name="android:statusBarColor">@color/bg_dark</item>
     </style>
 
-    <!-- Text Appearances -->
     <style name="TextAppearance.SwiftServe.Body" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">@color/text_primary</item>
     </style>
 
-    <!-- Primary Button -->
     <style name="Widget.SwiftServe.Button.Primary" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:paddingTop">14dp</item>
         <item name="android:paddingBottom">14dp</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">8dp</item>
         <item name="backgroundTint">@color/brand_primary</item>
         <item name="rippleColor">@color/brand_primary_dark</item>
     </style>
 
-    <!-- Outline Button -->
     <style name="Widget.SwiftServe.Button.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">@color/text_accent</item>
+        <item name="android:textColor">@color/brand_primary</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">8dp</item>
         <item name="strokeColor">@color/brand_primary</item>
         <item name="rippleColor">@color/brand_primary</item>
     </style>
 
-    <!-- Text Input Layout Style -->
-    <style name="Widget.SwiftServe.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxBackgroundColor">@color/bg_input</item>
-        <item name="boxStrokeColor">@color/stroke</item>
-        <item name="boxStrokeWidth">1dp</item>
-        <item name="hintTextColor">@color/text_hint</item>
+    <style name="Widget.SwiftServe.TextInputUnderline" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeColor">@color/brand_primary</item>
+        <item name="hintTextColor">@color/brand_primary</item>
         <item name="android:textColorHint">@color/text_hint</item>
-        <item name="boxCornerRadiusTopStart">12dp</item>
-        <item name="boxCornerRadiusTopEnd">12dp</item>
-        <item name="boxCornerRadiusBottomStart">12dp</item>
-        <item name="boxCornerRadiusBottomEnd">12dp</item>
         <item name="errorTextColor">@color/color_error</item>
     </style>
 
-    <!-- Toolbar Style -->
     <style name="Widget.SwiftServe.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/bg_card</item>
         <item name="titleTextColor">@color/text_primary</item>
         <item name="navigationIconTint">@color/text_primary</item>
     </style>
 
-    <!-- Card Style -->
     <style name="Widget.SwiftServe.Card" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/bg_card</item>
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">#EAEAEA</item>
     </style>
-
+    <style name="Widget.SwiftServe.TextInputLayout" parent="Widget.SwiftServe.TextInputUnderline">
+    </style>
 </resources>

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.swiftserve.app.R
@@ -41,10 +40,6 @@ class DashboardActivity : AppCompatActivity() {
         binding.ivProfile.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
-        binding.btnViewProfile.setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
-        }
-        binding.btnLogout.setOnClickListener { showLogoutDialog() }
         binding.swipeRefresh.setOnRefreshListener { loadDashboard() }
     }
 
@@ -116,13 +111,7 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun loadFromSession() {
-        val name = SessionManager.getUserName(this) ?: "User"
-        val email = SessionManager.getUserEmail(this) ?: ""
         val photo = SessionManager.getUserPhoto(this)
-
-        binding.tvWelcome.text = "Welcome back, $name!"
-        binding.tvUserEmail.text = email
-
         if (!photo.isNullOrEmpty()) {
             Glide.with(this).load(photo).circleCrop()
                 .placeholder(R.drawable.ic_person_placeholder)
@@ -132,11 +121,6 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun updateUI(body: DashboardResponse?) {
         val user = body?.user
-        val stats = body?.stats
-
-        binding.tvWelcome.text = "Welcome back, ${user?.name ?: "User"}!"
-        binding.tvUserEmail.text = user?.email ?: ""
-
         val photo = user?.photo
         if (!photo.isNullOrEmpty()) {
             Glide.with(this).load(photo).circleCrop()
@@ -145,42 +129,10 @@ class DashboardActivity : AppCompatActivity() {
         } else {
             binding.ivProfile.setImageResource(R.drawable.ic_person_placeholder)
         }
-
-        binding.tvTotalOrders.text = (stats?.totalOrders ?: 0).toString()
-        binding.tvPendingOrders.text = (stats?.pendingOrders ?: 0).toString()
-        binding.tvCompletedOrders.text = (stats?.completedOrders ?: 0).toString()
     }
 
     private fun setLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-        binding.contentLayout.visibility = if (isLoading) View.GONE else View.VISIBLE
-    }
-
-    private fun showLogoutDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("Logout")
-            .setMessage("Are you sure you want to logout?")
-            .setPositiveButton("Logout") { _, _ -> performLogout() }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private fun performLogout() {
-        val token = SessionManager.getBearerToken(this)
-        RetrofitClient.instance.logout(token).enqueue(object : Callback<Map<String, String>> {
-            override fun onResponse(
-                call: Call<Map<String, String>>,
-                response: Response<Map<String, String>>
-            ) {
-                SessionManager.clearSession(this@DashboardActivity)
-                navigateToLogin()
-            }
-
-            override fun onFailure(call: Call<Map<String, String>>, t: Throwable) {
-                SessionManager.clearSession(this@DashboardActivity)
-                navigateToLogin()
-            }
-        })
     }
 
     private fun navigateToLogin() {

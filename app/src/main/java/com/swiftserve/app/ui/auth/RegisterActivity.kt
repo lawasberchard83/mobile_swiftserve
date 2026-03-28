@@ -32,12 +32,15 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun performRegister() {
-        val name = binding.etName.text.toString().trim()
+        val firstName = binding.etFirstName.text.toString().trim()
+        val lastName = binding.etLastName.text.toString().trim()
+        val name = "$firstName $lastName".trim()
+        val phone = binding.etPhone.text.toString().trim()
         val email = binding.etEmail.text.toString().trim()
         val password = binding.etPassword.text.toString().trim()
         val confirmPassword = binding.etConfirmPassword.text.toString().trim()
 
-        if (!validateInputs(name, email, password, confirmPassword)) return
+        if (!validateInputs(firstName, lastName, email, password, confirmPassword)) return
 
         if (!NetworkUtils.isNetworkAvailable(this)) {
             showError("No internet connection. Please check your network.")
@@ -77,18 +80,26 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun validateInputs(
-        name: String,
+        firstName: String,
+        lastName: String,
         email: String,
         password: String,
         confirmPassword: String
     ): Boolean {
         var isValid = true
 
-        if (name.isEmpty()) {
-            binding.tilName.error = "Name is required"
+        if (firstName.isEmpty()) {
+            binding.tilFirstName.error = "First name is required"
             isValid = false
         } else {
-            binding.tilName.error = null
+            binding.tilFirstName.error = null
+        }
+
+        if (lastName.isEmpty()) {
+            binding.tilLastName.error = "Last name is required"
+            isValid = false
+        } else {
+            binding.tilLastName.error = null
         }
 
         if (email.isEmpty()) {
@@ -128,7 +139,9 @@ class RegisterActivity : AppCompatActivity() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         binding.btnRegister.isEnabled = !isLoading
         binding.btnRegister.text = if (isLoading) "" else "Create Account"
-        binding.etName.isEnabled = !isLoading
+        binding.etFirstName.isEnabled = !isLoading
+        binding.etLastName.isEnabled = !isLoading
+        binding.etPhone.isEnabled = !isLoading
         binding.etEmail.isEnabled = !isLoading
         binding.etPassword.isEnabled = !isLoading
         binding.etConfirmPassword.isEnabled = !isLoading

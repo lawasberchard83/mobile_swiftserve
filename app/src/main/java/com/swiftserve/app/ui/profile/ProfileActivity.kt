@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.swiftserve.app.R
 import com.swiftserve.app.data.api.RetrofitClient
 import com.swiftserve.app.data.model.ProfileResponse
 import com.swiftserve.app.databinding.ActivityProfileBinding
+import com.swiftserve.app.ui.auth.LoginActivity
 import com.swiftserve.app.utils.NetworkUtils
 import com.swiftserve.app.utils.SessionManager
 import retrofit2.Call
@@ -25,10 +27,6 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "My Profile"
-
         setupClickListeners()
     }
 
@@ -38,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        binding.toolbar.setNavigationOnClickListener { finish() }
+        binding.ivBack.setOnClickListener { finish() }
         binding.btnEditProfile.setOnClickListener {
             startActivity(Intent(this, UpdateProfileActivity::class.java))
         }
@@ -46,6 +44,8 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
         binding.swipeRefresh.setOnRefreshListener { loadProfile() }
+        
+        binding.btnLogout.setOnClickListener { showLogoutDialog() }
     }
 
     private fun loadProfile() {
@@ -85,8 +85,7 @@ class ProfileActivity : AppCompatActivity() {
                             email = user?.email,
                             phone = user?.phone,
                             address = user?.address,
-                            photo = user?.photo,
-                            joinDate = user?.createdAt
+                            photo = user?.photo
                         )
                     }
                     response.code() == 401 -> {
@@ -123,8 +122,7 @@ class ProfileActivity : AppCompatActivity() {
             email = SessionManager.getUserEmail(this),
             phone = SessionManager.getUserPhone(this),
             address = SessionManager.getUserAddress(this),
-            photo = SessionManager.getUserPhoto(this),
-            joinDate = null
+            photo = SessionManager.getUserPhoto(this)
         )
     }
 
@@ -133,27 +131,60 @@ class ProfileActivity : AppCompatActivity() {
         email: String?,
         phone: String?,
         address: String?,
-        photo: String?,
-        joinDate: String?
+        photo: String?
     ) {
-        binding.tvName.text = name ?: "—"
-        binding.tvEmail.text = email ?: "—"
-        binding.tvPhone.text = if (phone.isNullOrEmpty()) "—" else phone
-        binding.tvAddress.text = if (address.isNullOrEmpty()) "—" else address
-        binding.tvJoinDate.text = if (joinDate.isNullOrEmpty()) "—" else joinDate.take(10)
+        binding.tvName.text = if (name.isNullOrEmpty()) "Name not set" else name
+        binding.tvEmail.text = if (email.isNullOrEmpty()) "Email not set" else email
+        binding.tvPhone.text = if (phone.isNullOrEmpty()) "Phone not set" else phone
+        binding.tvAddress.text = if (address.isNullOrEmpty()) "Address not set" else address
 
         if (!photo.isNullOrEmpty()) {
             Glide.with(this).load(photo).circleCrop()
-                .placeholder(R.drawable.ic_person_placeholder)
-                .error(R.drawable.ic_person_placeholder)
+                .placeholder(R.drawable.img_profile)
+                .error(R.drawable.img_profile)
                 .into(binding.ivProfilePhoto)
+                
+            Glide.with(this).load(photo).circleCrop()
+                .placeholder(R.drawable.img_profile)
+                .into(binding.ivHeaderProfile)
         } else {
-            binding.ivProfilePhoto.setImageResource(R.drawable.ic_person_placeholder)
+            binding.ivProfilePhoto.setImageResource(R.drawable.img_profile)
+            binding.ivHeaderProfile.setImageResource(R.drawable.img_profile)
         }
+    }
+
+    private fun showLogoutDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
+            .setPositiveButton("Logout") { _, _ -> performLogout() }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun performLogout() {
+        val token = SessionManager.getBearerToken(this)
+        RetrofitClient.instance.logout(token).enqueue(object : Callback<Map<String, String>> {
+            override fun onResponse(call: Call<Map<String, String>>, response: Response<Map<String, String>>) {
+                SessionManager.clearSession(this@ProfileActivity)
+                navigateToLogin()
+            }
+            override fun onFailure(call: Call<Map<String, String>>, t: Throwable) {
+                SessionManager.clearSession(this@ProfileActivity)
+                navigateToLogin()
+            }
+        })
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 
     private fun setLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-        binding.scrollContent.visibility = if (isLoading) View.GONE else View.VISIBLE
+        binding.scrollContent.alpha = if (isLoading) 0.5f else 1.0f
     }
 }
