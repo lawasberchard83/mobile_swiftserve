@@ -209,21 +209,27 @@ app/src/main/java/com/swiftserve/app/
 
 ### Register
 > _Screenshot: Registration form with name, email, password fields_
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/83d9596b-fbf6-4288-a3ac-795a52bc3083" />
 
 ### Login
 > _Screenshot: Login screen with email and password_
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/7b6170b2-d11a-4b75-8636-e489b04168c7" />
 
 ### Dashboard
 > _Screenshot: Dashboard showing user greeting and stats cards_
+<img width="1919" height="1033" alt="image" src="https://github.com/user-attachments/assets/40a348d4-65a1-4ea7-8df9-4a8a19c8e9fb" />
 
 ### Profile
 > _Screenshot: Profile page with photo, name, email, phone, address_
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/433e4370-ad84-41fa-8ffc-44c120c6e304" />
 
 ### Update Profile
 > _Screenshot: Edit form with photo picker and input fields_
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/22ba8601-6bce-4304-9a29-ed40d20c4995" />
 
 ### Change Password
 > _Screenshot: Password change form with current and new password fields_
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/1d87bcd9-1087-4c3e-9d02-10765ff1a96a" />
 
 ---
 
