@@ -49,6 +49,22 @@
             android:name=".feature.profile.ChangePasswordActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".feature.checkout.CheckoutActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".feature.payment.PaymentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".feature.payment.AfterPaymentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".feature.about.AboutUsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
