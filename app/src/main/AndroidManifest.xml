@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".ui.auth.SplashActivity"
+            android:name=".feature.auth.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.SwiftServe.Splash">
             <intent-filter>
@@ -26,27 +26,27 @@
         </activity>
 
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name=".feature.auth.LoginActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.auth.RegisterActivity"
+            android:name=".feature.auth.RegisterActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.dashboard.DashboardActivity"
+            android:name=".feature.dashboard.DashboardActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.profile.ProfileActivity"
+            android:name=".feature.profile.ProfileActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.profile.UpdateProfileActivity"
+            android:name=".feature.profile.UpdateProfileActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.profile.ChangePasswordActivity"
+            android:name=".feature.profile.ChangePasswordActivity"
             android:exported="false" />
 
     </application>
