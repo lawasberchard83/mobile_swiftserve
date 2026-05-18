@@ -2,6 +2,7 @@ package com.swiftserve.app.feature.profile
 
 import com.swiftserve.app.core.api.RetrofitClient
 import com.swiftserve.app.core.model.ProfileResponse
+import com.swiftserve.app.core.model.SupabaseUser
 import com.swiftserve.app.core.utils.NetworkUtils
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,17 +16,29 @@ class ProfilePresenter(private var view: ProfileContract.View?) : ProfileContrac
         }
         view?.showLoading()
 
-        RetrofitClient.instance.getProfile(token).enqueue(object : Callback<ProfileResponse> {
-            override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+        // Extract user ID from session token
+        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+            ?: run {
+                view?.loadFromSession()
                 view?.hideLoading()
+                return
+            }
 
+        RetrofitClient.instance.getProfile(
+            idFilter = "eq.$userId"
+        ).enqueue(object : Callback<List<SupabaseUser>> {
+            override fun onResponse(call: Call<List<SupabaseUser>>, response: Response<List<SupabaseUser>>) {
+                view?.hideLoading()
                 when {
                     response.isSuccessful -> {
-                        view?.showProfileData(response.body())
+                        val user = response.body()?.firstOrNull()
+                        val profileResponse = ProfileResponse(
+                            message = "Profile loaded",
+                            user    = user?.toUserData()
+                        )
+                        view?.showProfileData(profileResponse)
                     }
-                    response.code() == 401 -> {
-                        view?.navigateToLogin()
-                    }
+                    response.code() == 401 -> view?.navigateToLogin()
                     else -> {
                         view?.loadFromSession()
                         view?.showError(NetworkUtils.parseError(response))
@@ -33,7 +46,7 @@ class ProfilePresenter(private var view: ProfileContract.View?) : ProfileContrac
                 }
             }
 
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+            override fun onFailure(call: Call<List<SupabaseUser>>, t: Throwable) {
                 view?.hideLoading()
                 view?.loadFromSession()
                 view?.showError("Network error.")
@@ -42,17 +55,8 @@ class ProfilePresenter(private var view: ProfileContract.View?) : ProfileContrac
     }
 
     override fun logout(token: String) {
-        view?.showLoading()
-        RetrofitClient.instance.logout(token).enqueue(object : Callback<Map<String, String>> {
-            override fun onResponse(call: Call<Map<String, String>>, response: Response<Map<String, String>>) {
-                view?.hideLoading()
-                view?.navigateToLogin()
-            }
-            override fun onFailure(call: Call<Map<String, String>>, t: Throwable) {
-                view?.hideLoading()
-                view?.navigateToLogin()
-            }
-        })
+        // Supabase anon key doesn't require a logout endpoint — just clear session locally
+        view?.navigateToLogin()
     }
 
     override fun onDestroy() {

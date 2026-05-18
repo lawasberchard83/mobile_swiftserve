@@ -2,6 +2,8 @@ package com.swiftserve.app.feature.dashboard
 
 import com.swiftserve.app.core.api.RetrofitClient
 import com.swiftserve.app.core.model.DashboardResponse
+import com.swiftserve.app.core.model.DashboardStats
+import com.swiftserve.app.core.model.SupabaseUser
 import com.swiftserve.app.core.utils.NetworkUtils
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,24 +18,37 @@ class DashboardPresenter(private var view: DashboardContract.View?) : DashboardC
 
         view?.showLoading()
 
-        RetrofitClient.instance.getDashboard(token).enqueue(object : Callback<DashboardResponse> {
-            override fun onResponse(call: Call<DashboardResponse>, response: Response<DashboardResponse>) {
+        // Extract user ID from session token (format: "supabase_user_<id>")
+        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+            ?: run {
+                view?.loadFromSession()
                 view?.hideLoading()
-                when {
-                    response.isSuccessful -> {
-                        view?.showDashboardData(response.body())
-                    }
-                    response.code() == 401 -> {
-                        view?.navigateToLogin()
-                    }
-                    else -> {
-                        view?.loadFromSession()
-                        view?.showError(NetworkUtils.parseError(response))
-                    }
+                return
+            }
+
+        // Query Supabase for the user profile
+        RetrofitClient.instance.getProfile(
+            idFilter = "eq.$userId"
+        ).enqueue(object : Callback<List<SupabaseUser>> {
+            override fun onResponse(call: Call<List<SupabaseUser>>, response: Response<List<SupabaseUser>>) {
+                view?.hideLoading()
+                if (response.isSuccessful) {
+                    val user = response.body()?.firstOrNull()
+                    val dashboardResponse = DashboardResponse(
+                        message = "Welcome back, ${user?.fullName ?: user?.username}!",
+                        user    = user?.toUserData(),
+                        stats   = DashboardStats()
+                    )
+                    view?.showDashboardData(dashboardResponse)
+                } else if (response.code() == 401) {
+                    view?.navigateToLogin()
+                } else {
+                    view?.loadFromSession()
+                    view?.showError(NetworkUtils.parseError(response))
                 }
             }
 
-            override fun onFailure(call: Call<DashboardResponse>, t: Throwable) {
+            override fun onFailure(call: Call<List<SupabaseUser>>, t: Throwable) {
                 view?.hideLoading()
                 view?.loadFromSession()
                 view?.showError("Network error. Showing cached data.")

@@ -7,45 +7,80 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    // ─── Auth ───────────────────────────────────────────
+    // ─── Auth ─────────────────────────────────────────────────────────────────
+    // Supabase PostgREST: query users table directly
+    // Login: match by username (or email) and password
+    @GET("users")
+    fun login(
+        @Query("username") usernameFilter: String,    // format: "eq.<value>"
+        @Query("password") passwordFilter: String,    // format: "eq.<value>"
+        @Query("select") select: String = "*",
+        @Header("Range") range: String = "0-0"
+    ): Call<List<SupabaseUser>>
 
-    @POST("api/register")
-    fun register(@Body request: RegisterRequest): Call<RegisterResponse>
+    // Register: insert a new user row
+    @POST("users")
+    fun register(@Body request: RegisterRequest): Call<List<SupabaseUser>>
 
-    @POST("api/login")
-    fun login(@Body request: LoginRequest): Call<LoginResponse>
+    // ─── Profile ──────────────────────────────────────────────────────────────
+    // Get user by id
+    @GET("users")
+    fun getProfile(
+        @Query("id") idFilter: String,               // format: "eq.<id>"
+        @Query("select") select: String = "*"
+    ): Call<List<SupabaseUser>>
 
-    @POST("api/logout")
-    fun logout(@Header("Authorization") token: String): Call<Map<String, String>>
-
-    // ─── Dashboard ──────────────────────────────────────
-
-    @GET("api/dashboard")
-    fun getDashboard(@Header("Authorization") token: String): Call<DashboardResponse>
-
-    // ─── Profile ────────────────────────────────────────
-
-    @GET("api/profile")
-    fun getProfile(@Header("Authorization") token: String): Call<ProfileResponse>
-
-    @PUT("api/profile")
+    // Update user profile
+    @PATCH("users")
     fun updateProfile(
-        @Header("Authorization") token: String,
+        @Query("id") idFilter: String,               // format: "eq.<id>"
         @Body request: UpdateProfileRequest
-    ): Call<UpdateProfileResponse>
+    ): Call<List<SupabaseUser>>
 
-    @Multipart
-    @POST("api/profile/photo")
-    fun uploadPhoto(
-        @Header("Authorization") token: String,
-        @Part photo: MultipartBody.Part
-    ): Call<UpdateProfileResponse>
-
-    // ─── Change Password ────────────────────────────────
-
-    @PUT("api/change-password")
+    // ─── Change Password ──────────────────────────────────────────────────────
+    @PATCH("users")
     fun changePassword(
-        @Header("Authorization") token: String,
+        @Query("id") idFilter: String,               // format: "eq.<id>"
         @Body request: ChangePasswordRequest
-    ): Call<ChangePasswordResponse>
+    ): Call<List<SupabaseUser>>
+
+    // ─── Products ─────────────────────────────────────────────────────────────
+    @GET("products")
+    fun getProducts(
+        @Query("select") select: String = "*",
+        @Query("order") order: String = "id.asc"
+    ): Call<List<Product>>
+
+    // ─── Orders ───────────────────────────────────────────────────────────────
+    @GET("orders")
+    fun getOrders(
+        @Query("user_id") userIdFilter: String,      // format: "eq.<id>"
+        @Query("select") select: String = "*",
+        @Query("order") order: String = "id.desc"
+    ): Call<List<Order>>
+
+    @POST("orders")
+    fun createOrder(@Body request: CreateOrderRequest): Call<List<Order>>
+
+    // ─── Cart Items ───────────────────────────────────────────────────────────
+    @GET("cart_items")
+    fun getCartItems(
+        @Query("user_id") userIdFilter: String,      // format: "eq.<id>"
+        @Query("select") select: String = "*"
+    ): Call<List<CartItem>>
+
+    @POST("cart_items")
+    fun addCartItem(@Body request: CartItem): Call<List<CartItem>>
+
+    @DELETE("cart_items")
+    fun removeCartItem(
+        @Query("id") idFilter: String               // format: "eq.<id>"
+    ): Call<Unit>
+
+    // ─── Order Items ──────────────────────────────────────────────────────────
+    @GET("order_items")
+    fun getOrderItems(
+        @Query("order_id") orderIdFilter: String,   // format: "eq.<id>"
+        @Query("select") select: String = "*"
+    ): Call<List<OrderItem>>
 }

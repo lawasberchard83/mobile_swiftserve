@@ -1,11 +1,7 @@
 package com.swiftserve.app.core.api
 
 import okhttp3.Interceptor
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
-import okhttp3.Protocol
-import okhttp3.Response
-import okhttp3.ResponseBody.Companion.toResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,63 +9,21 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://10.0.2.2:8080/"
+    // ── Supabase project credentials ────────────────────────────────────────
+    const val SUPABASE_URL  = "https://vboovedckhmcddoseufl.supabase.co"
+    const val SUPABASE_KEY  = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZib292ZWRja2htY2Rkb3NldWZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MTczODQsImV4cCI6MjA4ODM5MzM4NH0.xgDd7FFqOW-D3ZsOOa6gXumQvzRvoYV04c-t7bLsvm0"
 
-    // A MOCK INTERCEPTOR TO PRETEND WE HAVE A BACKEND SERVER
-    private val mockInterceptor = Interceptor { chain ->
-        val uri = chain.request().url.toUri().toString()
-        val jsonMediaType = "application/json".toMediaTypeOrNull()
-        
-        // Simulating internet delay so loading spinners show up nicely
-        Thread.sleep(1000)
+    private const val BASE_URL = "$SUPABASE_URL/rest/v1/"
 
-        val responseJson = when {
-            uri.contains("login", ignoreCase = true) -> """
-                {
-                  "token": "fake-jwt-token-123456789",
-                  "message": "Login successful",
-                  "user": {
-                    "id": 1,
-                    "name": "Alex Student",
-                    "email": "alex@university.edu",
-                    "phone": "+1 (555) 123-4567",
-                    "address": "Dorm 4, Room 102"
-                  }
-                }
-            """.trimIndent()
-            
-            uri.contains("register", ignoreCase = true) -> """
-                {
-                  "message": "Registration successful",
-                  "user": {
-                    "id": 2,
-                    "name": "New Student",
-                    "email": "new@university.edu"
-                  }
-                }
-            """.trimIndent()
-            
-            else -> """
-                {
-                  "message": "Success",
-                  "user": {
-                    "id": 1,
-                    "name": "Alex Student",
-                    "email": "alex@university.edu",
-                    "phone": "+1 (555) 123-4567",
-                    "address": "Dorm 4, Room 102"
-                  }
-                }
-            """.trimIndent()
-        }
-
-        Response.Builder()
-            .code(200)
-            .message("OK")
-            .protocol(Protocol.HTTP_1_1)
-            .request(chain.request())
-            .body(responseJson.toResponseBody(jsonMediaType))
+    // ── Attach required Supabase headers to every request ───────────────────
+    private val supabaseHeaderInterceptor = Interceptor { chain ->
+        val request = chain.request().newBuilder()
+            .addHeader("apikey", SUPABASE_KEY)
+            .addHeader("Authorization", "Bearer $SUPABASE_KEY")
+            .addHeader("Content-Type", "application/json")
+            .addHeader("Prefer", "return=representation")
             .build()
+        chain.proceed(request)
     }
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
@@ -78,7 +32,7 @@ object RetrofitClient {
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(mockInterceptor) // Insert our pretend backend!
+        .addInterceptor(supabaseHeaderInterceptor)
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
