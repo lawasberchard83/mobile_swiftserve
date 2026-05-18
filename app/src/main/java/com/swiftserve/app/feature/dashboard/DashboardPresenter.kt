@@ -56,6 +56,23 @@ class DashboardPresenter(private var view: DashboardContract.View?) : DashboardC
         })
     }
 
+    override fun loadProducts() {
+        RetrofitClient.instance.getProducts().enqueue(object : Callback<List<com.swiftserve.app.core.model.Product>> {
+            override fun onResponse(call: Call<List<com.swiftserve.app.core.model.Product>>, response: Response<List<com.swiftserve.app.core.model.Product>>) {
+                if (response.isSuccessful) {
+                    val products = response.body() ?: emptyList()
+                    view?.showProducts(products)
+                } else {
+                    view?.showError("Failed to load products")
+                }
+            }
+
+            override fun onFailure(call: Call<List<com.swiftserve.app.core.model.Product>>, t: Throwable) {
+                view?.showError("Network error loading products")
+            }
+        })
+    }
+
     override fun onDestroy() {
         view = null
     }

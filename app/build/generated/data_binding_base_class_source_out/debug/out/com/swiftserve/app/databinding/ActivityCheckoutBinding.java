@@ -4,7 +4,9 @@ package com.swiftserve.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -25,11 +27,38 @@ public final class ActivityCheckoutBinding implements ViewBinding {
   @NonNull
   public final MaterialButton btnCheckout;
 
+  @NonNull
+  public final ImageView ivProductImage;
+
+  @NonNull
+  public final TextView tvProductDescription;
+
+  @NonNull
+  public final TextView tvProductName;
+
+  @NonNull
+  public final TextView tvSubtotal;
+
+  @NonNull
+  public final TextView tvTax;
+
+  @NonNull
+  public final TextView tvTotal;
+
   private ActivityCheckoutBinding(@NonNull LinearLayout rootView,
-      @NonNull MaterialButton btnCancelAll, @NonNull MaterialButton btnCheckout) {
+      @NonNull MaterialButton btnCancelAll, @NonNull MaterialButton btnCheckout,
+      @NonNull ImageView ivProductImage, @NonNull TextView tvProductDescription,
+      @NonNull TextView tvProductName, @NonNull TextView tvSubtotal, @NonNull TextView tvTax,
+      @NonNull TextView tvTotal) {
     this.rootView = rootView;
     this.btnCancelAll = btnCancelAll;
     this.btnCheckout = btnCheckout;
+    this.ivProductImage = ivProductImage;
+    this.tvProductDescription = tvProductDescription;
+    this.tvProductName = tvProductName;
+    this.tvSubtotal = tvSubtotal;
+    this.tvTax = tvTax;
+    this.tvTotal = tvTotal;
   }
 
   @Override
@@ -71,7 +100,44 @@ public final class ActivityCheckoutBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCheckoutBinding((LinearLayout) rootView, btnCancelAll, btnCheckout);
+      id = R.id.ivProductImage;
+      ImageView ivProductImage = ViewBindings.findChildViewById(rootView, id);
+      if (ivProductImage == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductDescription;
+      TextView tvProductDescription = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductDescription == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductName;
+      TextView tvProductName = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductName == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSubtotal;
+      TextView tvSubtotal = ViewBindings.findChildViewById(rootView, id);
+      if (tvSubtotal == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTax;
+      TextView tvTax = ViewBindings.findChildViewById(rootView, id);
+      if (tvTax == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTotal;
+      TextView tvTotal = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotal == null) {
+        break missingId;
+      }
+
+      return new ActivityCheckoutBinding((LinearLayout) rootView, btnCancelAll, btnCheckout,
+          ivProductImage, tvProductDescription, tvProductName, tvSubtotal, tvTax, tvTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

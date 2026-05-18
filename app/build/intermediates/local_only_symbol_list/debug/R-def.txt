@@ -42,8 +42,7 @@ drawable img_profile_hero
 drawable img_register_hero
 drawable img_splash_logo
 id btnAboutUs
-id btnAddCart1
-id btnAddCart2
+id btnAddToCart
 id btnCancel
 id btnCancelAll
 id btnChangePassword
@@ -56,8 +55,7 @@ id btnPlaceOrder
 id btnRegister
 id btnReturnToShop
 id btnSave
-id btnSaveLater1
-id btnSaveLater2
+id btnSaveForLater
 id etAddress
 id etConfirmNewPassword
 id etConfirmPassword
@@ -71,9 +69,11 @@ id etPassword
 id etPhone
 id ivBack
 id ivHeaderProfile
+id ivProductImage
 id ivProfile
 id ivProfilePhoto
 id progressBar
+id rvProducts
 id scrollContent
 id swipeRefresh
 id tilAddress
@@ -93,7 +93,13 @@ id tvEmail
 id tvLogin
 id tvName
 id tvPhone
+id tvProductDescription
+id tvProductName
+id tvProductPrice
 id tvRegister
+id tvSubtotal
+id tvTax
+id tvTotal
 layout activity_about_us
 layout activity_after_payment
 layout activity_change_password
@@ -106,6 +112,7 @@ layout activity_register
 layout activity_splash
 layout activity_update_profile
 layout dialog_product
+layout item_product
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

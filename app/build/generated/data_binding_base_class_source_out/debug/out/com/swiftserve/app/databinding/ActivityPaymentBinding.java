@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -25,11 +26,15 @@ public final class ActivityPaymentBinding implements ViewBinding {
   @NonNull
   public final MaterialButton btnPlaceOrder;
 
+  @NonNull
+  public final TextView tvTotal;
+
   private ActivityPaymentBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton btnCancel,
-      @NonNull MaterialButton btnPlaceOrder) {
+      @NonNull MaterialButton btnPlaceOrder, @NonNull TextView tvTotal) {
     this.rootView = rootView;
     this.btnCancel = btnCancel;
     this.btnPlaceOrder = btnPlaceOrder;
+    this.tvTotal = tvTotal;
   }
 
   @Override
@@ -71,7 +76,13 @@ public final class ActivityPaymentBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityPaymentBinding((LinearLayout) rootView, btnCancel, btnPlaceOrder);
+      id = R.id.tvTotal;
+      TextView tvTotal = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotal == null) {
+        break missingId;
+      }
+
+      return new ActivityPaymentBinding((LinearLayout) rootView, btnCancel, btnPlaceOrder, tvTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
