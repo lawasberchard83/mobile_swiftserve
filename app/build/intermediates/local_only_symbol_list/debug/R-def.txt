@@ -41,6 +41,9 @@ drawable img_profile
 drawable img_profile_hero
 drawable img_register_hero
 drawable img_splash_logo
+id btnAboutUs
+id btnAddCart1
+id btnAddCart2
 id btnCancel
 id btnCancelAll
 id btnChangePassword
@@ -51,7 +54,10 @@ id btnLogin
 id btnLogout
 id btnPlaceOrder
 id btnRegister
+id btnReturnToShop
 id btnSave
+id btnSaveLater1
+id btnSaveLater2
 id etAddress
 id etConfirmNewPassword
 id etConfirmPassword

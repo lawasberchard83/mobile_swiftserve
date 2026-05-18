@@ -42,6 +42,10 @@ class ProfileActivity : AppCompatActivity(), ProfileContract.View {
             startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
         binding.swipeRefresh.setOnRefreshListener { fetchProfile() }
+        
+        binding.btnAboutUs.setOnClickListener {
+            startActivity(Intent(this, com.swiftserve.app.feature.about.AboutUsActivity::class.java))
+        }
 
         binding.btnLogout.setOnClickListener { showLogoutDialog() }
     }

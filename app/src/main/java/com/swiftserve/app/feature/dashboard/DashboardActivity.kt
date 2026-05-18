@@ -40,6 +40,22 @@ class DashboardActivity : AppCompatActivity(), DashboardContract.View {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
         binding.swipeRefresh.setOnRefreshListener { fetchDashboard() }
+
+        // Product 1
+        binding.btnAddCart1.setOnClickListener {
+            startActivity(Intent(this, com.swiftserve.app.feature.checkout.CheckoutActivity::class.java))
+        }
+        binding.btnSaveLater1.setOnClickListener {
+            Toast.makeText(this, "Saved for later!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Product 2
+        binding.btnAddCart2.setOnClickListener {
+            startActivity(Intent(this, com.swiftserve.app.feature.checkout.CheckoutActivity::class.java))
+        }
+        binding.btnSaveLater2.setOnClickListener {
+            Toast.makeText(this, "Saved for later!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun fetchDashboard() {

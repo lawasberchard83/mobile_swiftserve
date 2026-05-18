@@ -26,6 +26,9 @@ public final class ActivityProfileBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final MaterialButton btnAboutUs;
+
+  @NonNull
   public final MaterialButton btnChangePassword;
 
   @NonNull
@@ -65,13 +68,15 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final TextView tvPhone;
 
   private ActivityProfileBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull MaterialButton btnChangePassword, @NonNull MaterialButton btnEditProfile,
-      @NonNull MaterialButton btnLogout, @NonNull ImageView ivBack,
-      @NonNull CircleImageView ivHeaderProfile, @NonNull CircleImageView ivProfilePhoto,
-      @NonNull ProgressBar progressBar, @NonNull ScrollView scrollContent,
-      @NonNull SwipeRefreshLayout swipeRefresh, @NonNull TextView tvAddress,
-      @NonNull TextView tvEmail, @NonNull TextView tvName, @NonNull TextView tvPhone) {
+      @NonNull MaterialButton btnAboutUs, @NonNull MaterialButton btnChangePassword,
+      @NonNull MaterialButton btnEditProfile, @NonNull MaterialButton btnLogout,
+      @NonNull ImageView ivBack, @NonNull CircleImageView ivHeaderProfile,
+      @NonNull CircleImageView ivProfilePhoto, @NonNull ProgressBar progressBar,
+      @NonNull ScrollView scrollContent, @NonNull SwipeRefreshLayout swipeRefresh,
+      @NonNull TextView tvAddress, @NonNull TextView tvEmail, @NonNull TextView tvName,
+      @NonNull TextView tvPhone) {
     this.rootView = rootView;
+    this.btnAboutUs = btnAboutUs;
     this.btnChangePassword = btnChangePassword;
     this.btnEditProfile = btnEditProfile;
     this.btnLogout = btnLogout;
@@ -114,6 +119,12 @@ public final class ActivityProfileBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnAboutUs;
+      MaterialButton btnAboutUs = ViewBindings.findChildViewById(rootView, id);
+      if (btnAboutUs == null) {
+        break missingId;
+      }
+
       id = R.id.btnChangePassword;
       MaterialButton btnChangePassword = ViewBindings.findChildViewById(rootView, id);
       if (btnChangePassword == null) {
@@ -192,7 +203,7 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityProfileBinding((CoordinatorLayout) rootView, btnChangePassword,
+      return new ActivityProfileBinding((CoordinatorLayout) rootView, btnAboutUs, btnChangePassword,
           btnEditProfile, btnLogout, ivBack, ivHeaderProfile, ivProfilePhoto, progressBar,
           scrollContent, swipeRefresh, tvAddress, tvEmail, tvName, tvPhone);
     }

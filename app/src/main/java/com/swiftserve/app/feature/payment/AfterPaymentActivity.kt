@@ -16,6 +16,11 @@ class AfterPaymentActivity : AppCompatActivity() {
         binding = ActivityAfterPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Find the button if it has no ID, but better to give it an ID!
+        binding.btnReturnToShop.setOnClickListener {
+            val intent = Intent(this, DashboardActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 }

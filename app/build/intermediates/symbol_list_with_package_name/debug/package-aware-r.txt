@@ -3218,6 +3218,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnAboutUs
+id btnAddCart1
+id btnAddCart2
 id btnCancel
 id btnCancelAll
 id btnChangePassword
@@ -3228,7 +3231,10 @@ id btnLogin
 id btnLogout
 id btnPlaceOrder
 id btnRegister
+id btnReturnToShop
 id btnSave
+id btnSaveLater1
+id btnSaveLater2
 id buttonPanel
 id cache_measures
 id callMeasure

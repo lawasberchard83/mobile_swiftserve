@@ -282,6 +282,7 @@
                                         android:layout_marginTop="16dp">
 
                                         <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btnAddCart1"
                                             style="@style/Widget.SwiftServe.Button.Primary"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
@@ -290,6 +291,7 @@
                                             android:text="Add to Cart" />
 
                                         <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btnSaveLater1"
                                             style="@style/Widget.SwiftServe.Button.Outline"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
@@ -360,6 +362,7 @@
                                         android:layout_marginTop="16dp">
 
                                         <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btnAddCart2"
                                             style="@style/Widget.SwiftServe.Button.Primary"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
@@ -368,6 +371,7 @@
                                             android:text="Add to Cart" />
 
                                         <com.google.android.material.button.MaterialButton
+                                            android:id="@+id/btnSaveLater2"
                                             style="@style/Widget.SwiftServe.Button.Outline"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"

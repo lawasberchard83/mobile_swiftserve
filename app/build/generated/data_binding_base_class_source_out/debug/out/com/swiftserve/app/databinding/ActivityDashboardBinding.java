@@ -11,6 +11,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.button.MaterialButton;
 import com.swiftserve.app.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
@@ -22,6 +23,18 @@ public final class ActivityDashboardBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final MaterialButton btnAddCart1;
+
+  @NonNull
+  public final MaterialButton btnAddCart2;
+
+  @NonNull
+  public final MaterialButton btnSaveLater1;
+
+  @NonNull
+  public final MaterialButton btnSaveLater2;
+
+  @NonNull
   public final CircleImageView ivProfile;
 
   @NonNull
@@ -31,9 +44,15 @@ public final class ActivityDashboardBinding implements ViewBinding {
   public final SwipeRefreshLayout swipeRefresh;
 
   private ActivityDashboardBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull MaterialButton btnAddCart1, @NonNull MaterialButton btnAddCart2,
+      @NonNull MaterialButton btnSaveLater1, @NonNull MaterialButton btnSaveLater2,
       @NonNull CircleImageView ivProfile, @NonNull ProgressBar progressBar,
       @NonNull SwipeRefreshLayout swipeRefresh) {
     this.rootView = rootView;
+    this.btnAddCart1 = btnAddCart1;
+    this.btnAddCart2 = btnAddCart2;
+    this.btnSaveLater1 = btnSaveLater1;
+    this.btnSaveLater2 = btnSaveLater2;
     this.ivProfile = ivProfile;
     this.progressBar = progressBar;
     this.swipeRefresh = swipeRefresh;
@@ -66,6 +85,30 @@ public final class ActivityDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnAddCart1;
+      MaterialButton btnAddCart1 = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddCart1 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnAddCart2;
+      MaterialButton btnAddCart2 = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddCart2 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSaveLater1;
+      MaterialButton btnSaveLater1 = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveLater1 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSaveLater2;
+      MaterialButton btnSaveLater2 = ViewBindings.findChildViewById(rootView, id);
+      if (btnSaveLater2 == null) {
+        break missingId;
+      }
+
       id = R.id.ivProfile;
       CircleImageView ivProfile = ViewBindings.findChildViewById(rootView, id);
       if (ivProfile == null) {
@@ -84,8 +127,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((CoordinatorLayout) rootView, ivProfile, progressBar,
-          swipeRefresh);
+      return new ActivityDashboardBinding((CoordinatorLayout) rootView, btnAddCart1, btnAddCart2,
+          btnSaveLater1, btnSaveLater2, ivProfile, progressBar, swipeRefresh);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
