@@ -12,49 +12,69 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- ── Blue hero banner ── -->
-        <LinearLayout
+        <!-- ── Blue hero banner with illustration ── -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:orientation="vertical"
-            android:gravity="bottom"
-            android:padding="28dp"
+            android:layout_height="240dp"
             android:background="#007AFF">
 
-            <!-- App logo/wordmark -->
+            <!-- Delivery illustration -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_login_hero"
+                android:scaleType="centerCrop"
+                android:alpha="0.85" />
+
+            <!-- Gradient overlay for text readability -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99007AFF" />
+
+            <!-- Text on top -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:padding="28dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SwiftServe"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="8dp"
+                        android:letterSpacing="-0.02" />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="⚡"
-                    android:textSize="28sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SwiftServe"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginStart="8dp"
-                    android:letterSpacing="-0.02" />
+                    android:text="Fast. Fresh. Delivered."
+                    android:textSize="14sp"
+                    android:textColor="#CCE8FF"
+                    android:layout_marginTop="4dp" />
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fast. Fresh. Delivered."
-                android:textSize="14sp"
-                android:textColor="#B3D9FF"
-                android:layout_marginTop="6dp" />
-
-        </LinearLayout>
+        </FrameLayout>
 
         <!-- ── White form card ── -->
         <LinearLayout

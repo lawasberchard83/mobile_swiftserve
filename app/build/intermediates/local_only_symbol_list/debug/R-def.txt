@@ -23,8 +23,12 @@ color text_accent
 color text_hint
 color text_primary
 color text_secondary
+drawable bg_card_premium
 drawable bg_chip_active
 drawable bg_chip_inactive
+drawable bg_icon_circle
+drawable bg_info_box
+drawable bg_input_field
 drawable bg_skeleton
 drawable ic_launcher_foreground
 drawable ic_person_placeholder

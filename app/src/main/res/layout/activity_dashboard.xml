@@ -88,33 +88,52 @@
 
                 </LinearLayout>
 
-                <!-- Blue Banner -->
-                <LinearLayout
+                <!-- Banner with food illustration -->
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/brand_primary"
-                    android:padding="24dp"
-                    android:gravity="center">
+                    android:layout_height="180dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Campus food, delivered fast ⚡"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_dashboard_banner"
+                        android:scaleType="centerCrop" />
 
-                    <TextView
+                    <!-- Dark overlay for text readability -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#CC007AFF" />
+
+                    <!-- Text -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Order from your favorite campus vendors and pick up in minutes. No more long lines."
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp"
-                        android:textAlignment="center" />
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:padding="24dp">
 
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Campus food, delivered fast ⚡"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Order from your favorite campus vendors and pick up in minutes. No more long lines."
+                            android:textColor="#CCE8FF"
+                            android:textSize="12sp"
+                            android:lineSpacingMultiplier="1.4" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
 
                 <!-- Chips -->
                 <HorizontalScrollView
