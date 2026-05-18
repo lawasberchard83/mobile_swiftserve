@@ -107,7 +107,7 @@ class UpdateProfileActivity : AppCompatActivity(), UpdateProfileContract.View {
         val phone = binding.etPhone.text.toString().trim()
         val address = binding.etAddress.text.toString().trim()
 
-        if (!validateInputs(name, email)) return
+        if (!validateInputs(name, email, phone)) return
 
         if (!NetworkUtils.isNetworkAvailable(this)) {
             showError("No internet connection.")
@@ -133,7 +133,7 @@ class UpdateProfileActivity : AppCompatActivity(), UpdateProfileContract.View {
         presenter.updateProfile(token, name, email, phone, address, photoPart)
     }
 
-    private fun validateInputs(name: String, email: String): Boolean {
+    private fun validateInputs(name: String, email: String, phone: String): Boolean {
         var isValid = true
 
         if (name.isEmpty()) {
@@ -151,6 +151,13 @@ class UpdateProfileActivity : AppCompatActivity(), UpdateProfileContract.View {
             isValid = false
         } else {
             binding.tilEmail.error = null
+        }
+
+        if (phone.isNotEmpty() && (phone.length != 11 || !phone.all { it.isDigit() })) {
+            binding.tilPhone.error = "Phone number must be exactly 11 digits"
+            isValid = false
+        } else {
+            binding.tilPhone.error = null
         }
 
         return isValid

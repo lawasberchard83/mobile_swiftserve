@@ -23,14 +23,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/img_login_hero"
-                android:scaleType="centerCrop"
-                android:alpha="0.85" />
+                android:scaleType="centerCrop" />
 
-            <!-- Gradient overlay for text readability -->
+            <!-- Subtle bottom gradient only for text readability -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#99007AFF" />
+                android:layout_height="120dp"
+                android:layout_gravity="bottom"
+                android:background="#88000000" />
 
             <!-- Text on top -->
             <LinearLayout
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:text="Fast. Fresh. Delivered."
                     android:textSize="14sp"
-                    android:textColor="#CCE8FF"
+                    android:textColor="#FFFFFF"
                     android:layout_marginTop="4dp" />
 
             </LinearLayout>

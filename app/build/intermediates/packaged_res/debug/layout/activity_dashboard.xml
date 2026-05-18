@@ -99,11 +99,12 @@
                         android:src="@drawable/img_dashboard_banner"
                         android:scaleType="centerCrop" />
 
-                    <!-- Dark overlay for text readability -->
+                    <!-- Subtle bottom gradient for text readability -->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#CC007AFF" />
+                        android:layout_height="110dp"
+                        android:layout_gravity="bottom"
+                        android:background="#99000000" />
 
                     <!-- Text -->
                     <LinearLayout

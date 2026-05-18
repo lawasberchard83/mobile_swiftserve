@@ -1,130 +1,142 @@
 [
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_dialog_product.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/dialog_product.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_update_profile.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_update_profile.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_pizza.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_pizza.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_ic_person_placeholder.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\ic_person_placeholder.xml"
     },
     {
         "merged": "com.swiftserve.app-merged_res-41:/layout_activity_register.xml.flat",
         "source": "com.swiftserve.app-main-43:/layout/activity_register.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_profile.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_profile.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_change_password.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_change_password.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_splash_logo.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_splash_logo.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_checkout.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_checkout.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_icon_circle.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_icon_circle.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_dashboard.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_dashboard.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_profile.jpg.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_profile.jpg"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_change_password_hero.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_change_password_hero.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_change_password_hero.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_change_password_hero.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_burger.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_burger.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_update_profile.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_update_profile.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_skeleton.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_skeleton.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_login_hero.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_login_hero.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_after_payment.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_after_payment.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_pizza.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_pizza.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_info_box.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_info_box.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_card_premium.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_card_premium.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_burger.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_burger.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_dialog_product.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\dialog_product.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_ic_person_placeholder.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/ic_person_placeholder.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_chip_inactive.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_chip_inactive.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_about_us.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_about_us.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_input_field.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_input_field.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_dashboard_banner.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_dashboard_banner.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_payment.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_payment.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.swiftserve.app-main-43:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_profile_hero.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_profile_hero.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_chip_active.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_chip_active.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_splash_logo.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_splash_logo.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_card_premium.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_card_premium.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_chip_active.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_chip_active.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.swiftserve.app-main-43:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_about_us.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_about_us.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_profile.jpg.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_profile.jpg"
     },
     {
         "merged": "com.swiftserve.app-merged_res-41:/layout_activity_login.xml.flat",
         "source": "com.swiftserve.app-main-43:/layout/activity_login.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_register_hero.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_register_hero.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_change_password.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_change_password.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_payment.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_payment.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_after_payment.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_after_payment.xml"
     },
     {
         "merged": "com.swiftserve.app-merged_res-41:/layout_activity_dashboard.xml.flat",
         "source": "com.swiftserve.app-main-43:/layout/activity_dashboard.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_bg_skeleton.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/bg_skeleton.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_dashboard_banner.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_dashboard_banner.png"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.swiftserve.app-main-43:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_chip_inactive.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_chip_inactive.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/drawable-nodpi_img_profile_hero.png.flat",
-        "source": "com.swiftserve.app-main-43:/drawable-nodpi/img_profile_hero.png"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_profile.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_splash.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_splash.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_input_field.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_input_field.xml"
     },
     {
-        "merged": "com.swiftserve.app-merged_res-41:/layout_activity_checkout.xml.flat",
-        "source": "com.swiftserve.app-main-43:/layout/activity_checkout.xml"
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_register_hero.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_register_hero.png"
+    },
+    {
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_icon_circle.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_icon_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable-nodpi_img_login_hero.png.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable-nodpi\\img_login_hero.png"
+    },
+    {
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\drawable_bg_info_box.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\drawable\\bg_info_box.xml"
+    },
+    {
+        "merged": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-merged_res-41:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\BERCHARD\\.gradle\\daemon\\8.2\\com.swiftserve.app-main-43:\\layout\\activity_register.xml"
     }
 ]

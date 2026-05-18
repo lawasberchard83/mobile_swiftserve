@@ -28,15 +28,22 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
             val firstName = binding.etFirstName.text.toString().trim()
             val lastName = binding.etLastName.text.toString().trim()
             val name = "$firstName $lastName".trim()
+            val phone = binding.etPhone.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             val confirmPassword = binding.etConfirmPassword.text.toString().trim()
 
-            if (validateInputs(firstName, lastName, email, password, confirmPassword)) {
+            if (validateInputs(firstName, lastName, phone, email, password, confirmPassword)) {
                 if (!NetworkUtils.isNetworkAvailable(this)) {
                     showError("No internet connection. Please check your network.")
                 } else {
-                    val request = RegisterRequest(name, email, password, confirmPassword)
+                    val request = RegisterRequest(
+                        username = email,
+                        password = password,
+                        fullName = name,
+                        email = email,
+                        phone = phone
+                    )
                     presenter.performRegister(request)
                 }
             }
@@ -47,6 +54,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
     private fun validateInputs(
         firstName: String,
         lastName: String,
+        phone: String,
         email: String,
         password: String,
         confirmPassword: String
@@ -65,6 +73,16 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
             isValid = false
         } else {
             binding.tilLastName.error = null
+        }
+
+        if (phone.isEmpty()) {
+            binding.tilPhone.error = "Phone number is required"
+            isValid = false
+        } else if (phone.length != 11 || !phone.all { it.isDigit() }) {
+            binding.tilPhone.error = "Phone number must be exactly 11 digits"
+            isValid = false
+        } else {
+            binding.tilPhone.error = null
         }
 
         if (email.isEmpty()) {
