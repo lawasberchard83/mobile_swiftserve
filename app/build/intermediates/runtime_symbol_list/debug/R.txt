@@ -3035,10 +3035,15 @@ int drawable ic_mtrl_chip_checked_circle 0x7f070099
 int drawable ic_mtrl_chip_close_circle 0x7f07009a
 int drawable ic_person_placeholder 0x7f07009b
 int drawable ic_search_black_24 0x7f07009c
-int drawable img_banner 0x7f07009d
 int drawable img_burger 0x7f07009e
+int drawable img_change_password_hero 0x7f0700f0
+int drawable img_dashboard_banner 0x7f0700f1
+int drawable img_login_hero 0x7f0700f2
 int drawable img_pizza 0x7f07009f
 int drawable img_profile 0x7f0700a0
+int drawable img_profile_hero 0x7f0700f3
+int drawable img_register_hero 0x7f0700f4
+int drawable img_splash_logo 0x7f0700f5
 int drawable m3_avd_hide_password 0x7f0700a1
 int drawable m3_avd_show_password 0x7f0700a2
 int drawable m3_bottom_sheet_drag_handle 0x7f0700a3

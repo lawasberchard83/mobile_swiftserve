@@ -32,10 +32,15 @@ drawable bg_input_field
 drawable bg_skeleton
 drawable ic_launcher_foreground
 drawable ic_person_placeholder
-drawable img_banner
 drawable img_burger
+drawable img_change_password_hero
+drawable img_dashboard_banner
+drawable img_login_hero
 drawable img_pizza
 drawable img_profile
+drawable img_profile_hero
+drawable img_register_hero
+drawable img_splash_logo
 id btnCancel
 id btnCancelAll
 id btnChangePassword
