@@ -42,11 +42,8 @@ class ChangePasswordActivity : AppCompatActivity(), ChangePasswordContract.View 
         }
 
         val token = SessionManager.getBearerToken(this)
-        val request = ChangePasswordRequest(
-            currentPassword = currentPassword,
-            newPassword = newPassword,
-            newPasswordConfirmation = confirmPassword
-        )
+        // Supabase stores plain password in 'password' column — send the new password only
+        val request = ChangePasswordRequest(password = newPassword)
         presenter.changePassword(token, request)
     }
 
