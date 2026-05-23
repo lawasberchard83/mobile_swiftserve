@@ -17,7 +17,7 @@ class UpdateProfilePresenter(private var view: UpdateProfileContract.View?) : Up
     }
 
     private fun updateProfileOnly(token: String, name: String, email: String, phone: String, address: String) {
-        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+        val userId = token.substringAfter("supabase_user_").toIntOrNull()
             ?: run {
                 view?.hideLoading()
                 view?.showError("Session expired. Please login again.")

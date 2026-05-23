@@ -30,10 +30,11 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
             val name = "$firstName $lastName".trim()
             val phone = binding.etPhone.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
+            val address = binding.etAddress.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
             val confirmPassword = binding.etConfirmPassword.text.toString().trim()
 
-            if (validateInputs(firstName, lastName, phone, email, password, confirmPassword)) {
+            if (validateInputs(firstName, lastName, phone, email, address, password, confirmPassword)) {
                 if (!NetworkUtils.isNetworkAvailable(this)) {
                     showError("No internet connection. Please check your network.")
                 } else {
@@ -42,7 +43,8 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
                         password = password,
                         fullName = name,
                         email = email,
-                        phone = phone
+                        phone = phone,
+                        address = address
                     )
                     presenter.performRegister(request)
                 }
@@ -56,6 +58,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
         lastName: String,
         phone: String,
         email: String,
+        address: String,
         password: String,
         confirmPassword: String
     ): Boolean {
@@ -95,6 +98,13 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
             binding.tilEmail.error = null
         }
 
+        if (address.isEmpty()) {
+            binding.tilAddress.error = "Address is required"
+            isValid = false
+        } else {
+            binding.tilAddress.error = null
+        }
+
         if (password.isEmpty()) {
             binding.tilPassword.error = "Password is required"
             isValid = false
@@ -126,6 +136,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
         binding.etLastName.isEnabled = false
         binding.etPhone.isEnabled = false
         binding.etEmail.isEnabled = false
+        binding.etAddress.isEnabled = false
         binding.etPassword.isEnabled = false
         binding.etConfirmPassword.isEnabled = false
     }
@@ -138,6 +149,7 @@ class RegisterActivity : AppCompatActivity(), RegisterContract.View {
         binding.etLastName.isEnabled = true
         binding.etPhone.isEnabled = true
         binding.etEmail.isEnabled = true
+        binding.etAddress.isEnabled = true
         binding.etPassword.isEnabled = true
         binding.etConfirmPassword.isEnabled = true
     }

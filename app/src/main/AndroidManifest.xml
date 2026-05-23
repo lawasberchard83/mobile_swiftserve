@@ -38,6 +38,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".feature.dashboard.SavedActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".feature.dashboard.MyOrdersActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".feature.profile.ProfileActivity"
             android:exported="false" />
 

@@ -12,7 +12,7 @@ class ChangePasswordPresenter(private var view: ChangePasswordContract.View?) : 
     override fun changePassword(token: String, request: ChangePasswordRequest) {
         view?.showLoading()
 
-        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+        val userId = token.substringAfter("supabase_user_").toIntOrNull()
             ?: run {
                 view?.hideLoading()
                 view?.showError("Session expired. Please login again.")

@@ -180,7 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone Number"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="14dp"
                 app:startIconDrawable="@android:drawable/ic_menu_call"
                 app:startIconTint="@color/icon_tint"
                 app:boxCornerRadiusTopStart="14dp"
@@ -198,6 +198,35 @@
                     android:layout_height="56dp"
                     android:inputType="phone"
                     android:maxLength="11"
+                    android:textColor="@color/text_primary"
+                    android:imeOptions="actionNext" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Address -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAddress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Delivery Address"
+                android:layout_marginBottom="24dp"
+                app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                app:startIconTint="@color/icon_tint"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxStrokeColor="#007AFF"
+                app:boxStrokeWidth="1.5dp"
+                app:hintTextColor="@color/brand_primary"
+                app:boxBackgroundColor="#FAFBFF">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:inputType="textPostalAddress|textCapSentences"
                     android:textColor="@color/text_primary"
                     android:imeOptions="actionNext" />
 

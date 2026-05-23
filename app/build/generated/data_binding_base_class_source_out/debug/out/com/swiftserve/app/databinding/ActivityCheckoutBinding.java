@@ -4,11 +4,11 @@ package com.swiftserve.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.button.MaterialButton;
@@ -22,19 +22,22 @@ public final class ActivityCheckoutBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final MaterialButton btnBrowseMenu;
+
+  @NonNull
   public final MaterialButton btnCancelAll;
 
   @NonNull
   public final MaterialButton btnCheckout;
 
   @NonNull
-  public final ImageView ivProductImage;
+  public final LinearLayout layoutEmptyCart;
 
   @NonNull
-  public final TextView tvProductDescription;
+  public final RecyclerView rvCartItems;
 
   @NonNull
-  public final TextView tvProductName;
+  public final TextView tvShipping;
 
   @NonNull
   public final TextView tvSubtotal;
@@ -46,16 +49,17 @@ public final class ActivityCheckoutBinding implements ViewBinding {
   public final TextView tvTotal;
 
   private ActivityCheckoutBinding(@NonNull LinearLayout rootView,
-      @NonNull MaterialButton btnCancelAll, @NonNull MaterialButton btnCheckout,
-      @NonNull ImageView ivProductImage, @NonNull TextView tvProductDescription,
-      @NonNull TextView tvProductName, @NonNull TextView tvSubtotal, @NonNull TextView tvTax,
-      @NonNull TextView tvTotal) {
+      @NonNull MaterialButton btnBrowseMenu, @NonNull MaterialButton btnCancelAll,
+      @NonNull MaterialButton btnCheckout, @NonNull LinearLayout layoutEmptyCart,
+      @NonNull RecyclerView rvCartItems, @NonNull TextView tvShipping, @NonNull TextView tvSubtotal,
+      @NonNull TextView tvTax, @NonNull TextView tvTotal) {
     this.rootView = rootView;
+    this.btnBrowseMenu = btnBrowseMenu;
     this.btnCancelAll = btnCancelAll;
     this.btnCheckout = btnCheckout;
-    this.ivProductImage = ivProductImage;
-    this.tvProductDescription = tvProductDescription;
-    this.tvProductName = tvProductName;
+    this.layoutEmptyCart = layoutEmptyCart;
+    this.rvCartItems = rvCartItems;
+    this.tvShipping = tvShipping;
     this.tvSubtotal = tvSubtotal;
     this.tvTax = tvTax;
     this.tvTotal = tvTotal;
@@ -88,6 +92,12 @@ public final class ActivityCheckoutBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBrowseMenu;
+      MaterialButton btnBrowseMenu = ViewBindings.findChildViewById(rootView, id);
+      if (btnBrowseMenu == null) {
+        break missingId;
+      }
+
       id = R.id.btnCancelAll;
       MaterialButton btnCancelAll = ViewBindings.findChildViewById(rootView, id);
       if (btnCancelAll == null) {
@@ -100,21 +110,21 @@ public final class ActivityCheckoutBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.ivProductImage;
-      ImageView ivProductImage = ViewBindings.findChildViewById(rootView, id);
-      if (ivProductImage == null) {
+      id = R.id.layoutEmptyCart;
+      LinearLayout layoutEmptyCart = ViewBindings.findChildViewById(rootView, id);
+      if (layoutEmptyCart == null) {
         break missingId;
       }
 
-      id = R.id.tvProductDescription;
-      TextView tvProductDescription = ViewBindings.findChildViewById(rootView, id);
-      if (tvProductDescription == null) {
+      id = R.id.rvCartItems;
+      RecyclerView rvCartItems = ViewBindings.findChildViewById(rootView, id);
+      if (rvCartItems == null) {
         break missingId;
       }
 
-      id = R.id.tvProductName;
-      TextView tvProductName = ViewBindings.findChildViewById(rootView, id);
-      if (tvProductName == null) {
+      id = R.id.tvShipping;
+      TextView tvShipping = ViewBindings.findChildViewById(rootView, id);
+      if (tvShipping == null) {
         break missingId;
       }
 
@@ -136,8 +146,8 @@ public final class ActivityCheckoutBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCheckoutBinding((LinearLayout) rootView, btnCancelAll, btnCheckout,
-          ivProductImage, tvProductDescription, tvProductName, tvSubtotal, tvTax, tvTotal);
+      return new ActivityCheckoutBinding((LinearLayout) rootView, btnBrowseMenu, btnCancelAll,
+          btnCheckout, layoutEmptyCart, rvCartItems, tvShipping, tvSubtotal, tvTax, tvTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

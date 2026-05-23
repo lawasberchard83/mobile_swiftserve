@@ -2,12 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Widget.SwiftServe.Card"
-    android:layout_width="320dp"
+    android:layout_width="220dp"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="12dp"
     app:strokeWidth="1dp"
-    app:strokeColor="@color/brand_primary">
+    app:strokeColor="@color/divider">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/ivProductImage"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="130dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_burger" />
 
@@ -25,61 +25,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
             <TextView
                 android:id="@+id/tvProductName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product Name"
                 android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
             <TextView
                 android:id="@+id/tvProductDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Short Description"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"
+                android:maxLines="2"
+                android:minLines="2"
+                android:ellipsize="end" />
 
             <TextView
                 android:id="@+id/tvProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="€0.00"
+                android:text="₱0.00"
                 android:textColor="@color/text_primary"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="8dp" />
 
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddToCart"
+                style="@style/Widget.SwiftServe.Button.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="12dp"
+                android:text="Add to Cart"
+                android:textSize="12sp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddToCart"
-                    style="@style/Widget.SwiftServe.Button.Primary"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    android:text="Add to Cart" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnSaveForLater"
-                    style="@style/Widget.SwiftServe.Button.Outline"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:text="Save for later" />
-
-            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveForLater"
+                style="@style/Widget.SwiftServe.Button.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Save for later"
+                android:textSize="11sp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
 
         </LinearLayout>
     </LinearLayout>

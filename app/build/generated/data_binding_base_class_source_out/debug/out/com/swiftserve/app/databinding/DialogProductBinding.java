@@ -4,20 +4,70 @@ package com.swiftserve.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.swiftserve.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class DialogProductBinding implements ViewBinding {
   @NonNull
   private final MaterialCardView rootView;
 
-  private DialogProductBinding(@NonNull MaterialCardView rootView) {
+  @NonNull
+  public final MaterialButton btnAddToCart;
+
+  @NonNull
+  public final ImageView btnClose;
+
+  @NonNull
+  public final TextView btnMinus;
+
+  @NonNull
+  public final TextView btnPlus;
+
+  @NonNull
+  public final ImageView ivProductImage;
+
+  @NonNull
+  public final TextView tvProductDescription;
+
+  @NonNull
+  public final TextView tvProductName;
+
+  @NonNull
+  public final TextView tvProductPrice;
+
+  @NonNull
+  public final TextView tvProductRating;
+
+  @NonNull
+  public final TextView tvQuantity;
+
+  private DialogProductBinding(@NonNull MaterialCardView rootView,
+      @NonNull MaterialButton btnAddToCart, @NonNull ImageView btnClose, @NonNull TextView btnMinus,
+      @NonNull TextView btnPlus, @NonNull ImageView ivProductImage,
+      @NonNull TextView tvProductDescription, @NonNull TextView tvProductName,
+      @NonNull TextView tvProductPrice, @NonNull TextView tvProductRating,
+      @NonNull TextView tvQuantity) {
     this.rootView = rootView;
+    this.btnAddToCart = btnAddToCart;
+    this.btnClose = btnClose;
+    this.btnMinus = btnMinus;
+    this.btnPlus = btnPlus;
+    this.ivProductImage = ivProductImage;
+    this.tvProductDescription = tvProductDescription;
+    this.tvProductName = tvProductName;
+    this.tvProductPrice = tvProductPrice;
+    this.tvProductRating = tvProductRating;
+    this.tvQuantity = tvQuantity;
   }
 
   @Override
@@ -43,10 +93,75 @@ public final class DialogProductBinding implements ViewBinding {
 
   @NonNull
   public static DialogProductBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnAddToCart;
+      MaterialButton btnAddToCart = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddToCart == null) {
+        break missingId;
+      }
 
-    return new DialogProductBinding((MaterialCardView) rootView);
+      id = R.id.btnClose;
+      ImageView btnClose = ViewBindings.findChildViewById(rootView, id);
+      if (btnClose == null) {
+        break missingId;
+      }
+
+      id = R.id.btnMinus;
+      TextView btnMinus = ViewBindings.findChildViewById(rootView, id);
+      if (btnMinus == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPlus;
+      TextView btnPlus = ViewBindings.findChildViewById(rootView, id);
+      if (btnPlus == null) {
+        break missingId;
+      }
+
+      id = R.id.ivProductImage;
+      ImageView ivProductImage = ViewBindings.findChildViewById(rootView, id);
+      if (ivProductImage == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductDescription;
+      TextView tvProductDescription = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductDescription == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductName;
+      TextView tvProductName = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductName == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductPrice;
+      TextView tvProductPrice = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductPrice == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProductRating;
+      TextView tvProductRating = ViewBindings.findChildViewById(rootView, id);
+      if (tvProductRating == null) {
+        break missingId;
+      }
+
+      id = R.id.tvQuantity;
+      TextView tvQuantity = ViewBindings.findChildViewById(rootView, id);
+      if (tvQuantity == null) {
+        break missingId;
+      }
+
+      return new DialogProductBinding((MaterialCardView) rootView, btnAddToCart, btnClose, btnMinus,
+          btnPlus, ivProductImage, tvProductDescription, tvProductName, tvProductPrice,
+          tvProductRating, tvQuantity);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

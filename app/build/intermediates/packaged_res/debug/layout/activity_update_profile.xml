@@ -125,7 +125,7 @@
                         style="@style/Widget.SwiftServe.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Phone Number (Optional)"
+                        android:hint="Phone Number"
                         android:layout_marginTop="16dp">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -144,7 +144,7 @@
                         style="@style/Widget.SwiftServe.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Address (Optional)"
+                        android:hint="Delivery Address"
                         android:layout_marginTop="16dp">
 
                         <com.google.android.material.textfield.TextInputEditText

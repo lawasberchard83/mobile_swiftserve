@@ -19,7 +19,7 @@ class DashboardPresenter(private var view: DashboardContract.View?) : DashboardC
         view?.showLoading()
 
         // Extract user ID from session token (format: "supabase_user_<id>")
-        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+        val userId = token.substringAfter("supabase_user_").toIntOrNull()
             ?: run {
                 view?.loadFromSession()
                 view?.hideLoading()

@@ -17,7 +17,7 @@ class ProfilePresenter(private var view: ProfileContract.View?) : ProfileContrac
         view?.showLoading()
 
         // Extract user ID from session token
-        val userId = token.removePrefix("supabase_user_").toIntOrNull()
+        val userId = token.substringAfter("supabase_user_").toIntOrNull()
             ?: run {
                 view?.loadFromSession()
                 view?.hideLoading()

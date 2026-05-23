@@ -6,13 +6,14 @@ import com.google.gson.annotations.SerializedName
 // Matches columns: id, username, password, full_name, email, phone, address
 
 data class SupabaseUser(
-    @SerializedName("id")        val id: Int? = null,
-    @SerializedName("username")  val username: String? = null,
-    @SerializedName("password")  val password: String? = null,
-    @SerializedName("full_name") val fullName: String? = null,
-    @SerializedName("email")     val email: String? = null,
-    @SerializedName("phone")     val phone: String? = null,
-    @SerializedName("address")   val address: String? = null
+    @SerializedName("id")            val id: Int? = null,
+    @SerializedName("username")      val username: String? = null,
+    @SerializedName("password")      val password: String? = null,
+    @SerializedName("full_name")     val fullName: String? = null,
+    @SerializedName("email")         val email: String? = null,
+    @SerializedName("phone")         val phone: String? = null,
+    @SerializedName("address")       val address: String? = null,
+    @SerializedName("profile_image") val profileImage: String? = null
 ) {
     /** Convert to the app-wide UserData model */
     fun toUserData(): UserData = UserData(
@@ -21,7 +22,8 @@ data class SupabaseUser(
         username = username,
         email    = email,
         phone    = phone,
-        address  = address
+        address  = address,
+        photo    = profileImage
     )
 }
 
@@ -75,10 +77,11 @@ data class ProfileResponse(
 // ─── Update Profile Models ─────────────────────────────────────────────────
 
 data class UpdateProfileRequest(
-    @SerializedName("full_name") val fullName: String? = null,
-    @SerializedName("email")     val email: String? = null,
-    @SerializedName("phone")     val phone: String? = null,
-    @SerializedName("address")   val address: String? = null
+    @SerializedName("full_name")     val fullName: String? = null,
+    @SerializedName("email")         val email: String? = null,
+    @SerializedName("phone")         val phone: String? = null,
+    @SerializedName("address")       val address: String? = null,
+    @SerializedName("profile_image") val profileImage: String? = null
 )
 
 data class UpdateProfileResponse(
@@ -122,29 +125,35 @@ data class DashboardStats(
 // ─── Supabase Table: products ──────────────────────────────────────────────
 
 data class Product(
-    @SerializedName("id")          val id: Int? = null,
-    @SerializedName("name")        val name: String? = null,
-    @SerializedName("description") val description: String? = null,
-    @SerializedName("price")       val price: Double? = null,
-    @SerializedName("image_url")   val imageUrl: String? = null,
-    @SerializedName("category")    val category: String? = null,
-    @SerializedName("stock")       val stock: Int? = null
+    @SerializedName("id")             val id: Int? = null,
+    @SerializedName("name")           val name: String? = null,
+    @SerializedName("description")    val description: String? = null,
+    @SerializedName("price")          val price: Double? = null,
+    @SerializedName("image")          val imageUrl: String? = null,
+    @SerializedName("category")       val category: String? = null,
+    @SerializedName("stock_quantity") val stock: Int? = null
 )
 
 // ─── Supabase Table: orders ────────────────────────────────────────────────
 
 data class Order(
-    @SerializedName("id")          val id: Int? = null,
-    @SerializedName("user_id")     val userId: Int? = null,
-    @SerializedName("status")      val status: String? = null,
-    @SerializedName("total")       val total: Double? = null,
-    @SerializedName("created_at")  val createdAt: String? = null
+    @SerializedName("id")           val id: Int? = null,
+    @SerializedName("user_id")      val userId: Int? = null,
+    @SerializedName("status")       val status: String? = null,
+    @SerializedName("total")        val total: Double? = null,
+    @SerializedName("total_amount") val totalAmount: Double? = null,
+    @SerializedName("items")        val items: String? = null,
+    @SerializedName("shipping_address") val shippingAddress: String? = null,
+    @SerializedName("created_at")   val createdAt: String? = null
 )
 
 data class CreateOrderRequest(
-    @SerializedName("user_id") val userId: Int,
-    @SerializedName("status")  val status: String = "pending",
-    @SerializedName("total")   val total: Double
+    @SerializedName("user_id")      val userId: Int,
+    @SerializedName("status")       val status: String = "Pending",
+    @SerializedName("total")        val total: Double,
+    @SerializedName("total_amount") val totalAmount: Double = total,
+    @SerializedName("items")        val items: String? = null,
+    @SerializedName("shipping_address") val shippingAddress: String? = null
 )
 
 // ─── Supabase Table: cart_items ────────────────────────────────────────────

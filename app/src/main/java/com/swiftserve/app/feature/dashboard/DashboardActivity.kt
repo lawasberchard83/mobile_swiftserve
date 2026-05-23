@@ -40,16 +40,14 @@ class DashboardActivity : AppCompatActivity(), DashboardContract.View {
     private fun setupRecyclerView() {
         productAdapter = ProductAdapter(
             onAddToCartClick = { product ->
-                val intent = Intent(this, com.swiftserve.app.feature.checkout.CheckoutActivity::class.java)
-                intent.putExtra("product_id", product.id)
-                intent.putExtra("product_name", product.name)
-                intent.putExtra("product_desc", product.description)
-                intent.putExtra("product_price", product.price)
-                intent.putExtra("product_image", product.imageUrl)
-                startActivity(intent)
+                showProductDetailDialog(product)
             },
             onSaveForLaterClick = { product ->
+                com.swiftserve.app.core.utils.SavedManager.addToSaved(this, product)
                 Toast.makeText(this, "${product.name} saved for later!", Toast.LENGTH_SHORT).show()
+            },
+            onProductClick = { product ->
+                showProductDetailDialog(product)
             }
         )
         binding.rvProducts.apply {
@@ -62,7 +60,30 @@ class DashboardActivity : AppCompatActivity(), DashboardContract.View {
         binding.ivProfile.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
+        binding.ivSaved.setOnClickListener {
+            startActivity(Intent(this, SavedActivity::class.java))
+        }
+        binding.ivOrders.setOnClickListener {
+            startActivity(Intent(this, MyOrdersActivity::class.java))
+        }
+        binding.ivCart.setOnClickListener {
+            startActivity(Intent(this, com.swiftserve.app.feature.checkout.CheckoutActivity::class.java))
+        }
         binding.swipeRefresh.setOnRefreshListener { fetchDashboard() }
+
+        binding.etSearch.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchQuery = s?.toString() ?: ""
+                updateFilters()
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
+
+        binding.chipAll.setOnClickListener { setCategory("ALL") }
+        binding.chipMeals.setOnClickListener { setCategory("MEALS") }
+        binding.chipDrinks.setOnClickListener { setCategory("DRINKS") }
+        binding.chipSnacks.setOnClickListener { setCategory("SNACKS") }
     }
 
     private fun fetchDashboard() {
@@ -117,8 +138,38 @@ class DashboardActivity : AppCompatActivity(), DashboardContract.View {
         }
     }
 
+    private var allProducts: List<com.swiftserve.app.core.model.Product> = emptyList()
+    private var currentCategory: String = "ALL"
+    private var searchQuery: String = ""
+
     override fun showProducts(products: List<com.swiftserve.app.core.model.Product>) {
-        productAdapter.setProducts(products)
+        allProducts = products
+        updateFilters()
+    }
+
+    private fun updateFilters() {
+        val filtered = allProducts.filter { p ->
+            val matchesCategory = currentCategory == "ALL" || p.category?.equals(currentCategory, ignoreCase = true) == true
+            val matchesSearch = p.name?.contains(searchQuery, ignoreCase = true) == true ||
+                                p.description?.contains(searchQuery, ignoreCase = true) == true
+            matchesCategory && matchesSearch
+        }
+        productAdapter.setProducts(filtered)
+    }
+
+    private fun setCategory(category: String) {
+        currentCategory = category
+        binding.chipAll.setBackgroundResource(if (category == "ALL") R.drawable.bg_chip_active else R.drawable.bg_chip_inactive)
+        binding.chipMeals.setBackgroundResource(if (category == "MEALS") R.drawable.bg_chip_active else R.drawable.bg_chip_inactive)
+        binding.chipDrinks.setBackgroundResource(if (category == "DRINKS") R.drawable.bg_chip_active else R.drawable.bg_chip_inactive)
+        binding.chipSnacks.setBackgroundResource(if (category == "SNACKS") R.drawable.bg_chip_active else R.drawable.bg_chip_inactive)
+        
+        binding.chipAll.setTextColor(if (category == "ALL") android.graphics.Color.WHITE else resources.getColor(R.color.brand_primary))
+        binding.chipMeals.setTextColor(if (category == "MEALS") android.graphics.Color.WHITE else resources.getColor(R.color.brand_primary))
+        binding.chipDrinks.setTextColor(if (category == "DRINKS") android.graphics.Color.WHITE else resources.getColor(R.color.brand_primary))
+        binding.chipSnacks.setTextColor(if (category == "SNACKS") android.graphics.Color.WHITE else resources.getColor(R.color.brand_primary))
+        
+        updateFilters()
     }
 
     override fun navigateToLogin() {
@@ -131,6 +182,59 @@ class DashboardActivity : AppCompatActivity(), DashboardContract.View {
 
     override fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showProductDetailDialog(product: com.swiftserve.app.core.model.Product) {
+        val dialog = com.google.android.material.bottomsheet.BottomSheetDialog(this)
+        val dialogBinding = com.swiftserve.app.databinding.DialogProductBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogBinding.root)
+
+        dialogBinding.tvProductName.text = product.name ?: "Unknown Product"
+        dialogBinding.tvProductDescription.text = product.description ?: ""
+        dialogBinding.tvProductPrice.text = "₱%.2f".format(product.price ?: 0.0)
+        dialogBinding.tvProductRating.text = "⭐ 4.5 rating"
+
+        if (!product.imageUrl.isNullOrEmpty()) {
+            Glide.with(this)
+                .load(product.imageUrl)
+                .centerCrop()
+                .placeholder(R.drawable.img_burger)
+                .into(dialogBinding.ivProductImage)
+        } else {
+            dialogBinding.ivProductImage.setImageResource(R.drawable.img_burger)
+        }
+
+        var quantity = 1
+        val updateQuantityViews = {
+            dialogBinding.tvQuantity.text = quantity.toString()
+            val total = (product.price ?: 0.0) * quantity
+            dialogBinding.btnAddToCart.text = "Add to Cart - ₱%.2f".format(total)
+        }
+        updateQuantityViews()
+
+        dialogBinding.btnPlus.setOnClickListener {
+            quantity++
+            updateQuantityViews()
+        }
+
+        dialogBinding.btnMinus.setOnClickListener {
+            if (quantity > 1) {
+                quantity--
+                updateQuantityViews()
+            }
+        }
+
+        dialogBinding.btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialogBinding.btnAddToCart.setOnClickListener {
+            dialog.dismiss()
+            com.swiftserve.app.core.utils.CartManager.addToCart(this, product, quantity)
+            Toast.makeText(this, "${product.name} added to cart!", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.show()
     }
 
     override fun onDestroy() {

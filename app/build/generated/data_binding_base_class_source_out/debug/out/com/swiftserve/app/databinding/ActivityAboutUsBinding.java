@@ -22,9 +22,35 @@ public final class ActivityAboutUsBinding implements ViewBinding {
   @NonNull
   public final ImageView ivBack;
 
-  private ActivityAboutUsBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivBack) {
+  @NonNull
+  public final ImageView ivBanner;
+
+  @NonNull
+  public final ImageView ivCatDrinks;
+
+  @NonNull
+  public final ImageView ivCatMeals;
+
+  @NonNull
+  public final ImageView ivCatSnacks;
+
+  @NonNull
+  public final ImageView ivCreator;
+
+  @NonNull
+  public final ImageView ivHero;
+
+  private ActivityAboutUsBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivBack,
+      @NonNull ImageView ivBanner, @NonNull ImageView ivCatDrinks, @NonNull ImageView ivCatMeals,
+      @NonNull ImageView ivCatSnacks, @NonNull ImageView ivCreator, @NonNull ImageView ivHero) {
     this.rootView = rootView;
     this.ivBack = ivBack;
+    this.ivBanner = ivBanner;
+    this.ivCatDrinks = ivCatDrinks;
+    this.ivCatMeals = ivCatMeals;
+    this.ivCatSnacks = ivCatSnacks;
+    this.ivCreator = ivCreator;
+    this.ivHero = ivHero;
   }
 
   @Override
@@ -60,7 +86,44 @@ public final class ActivityAboutUsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityAboutUsBinding((LinearLayout) rootView, ivBack);
+      id = R.id.ivBanner;
+      ImageView ivBanner = ViewBindings.findChildViewById(rootView, id);
+      if (ivBanner == null) {
+        break missingId;
+      }
+
+      id = R.id.ivCatDrinks;
+      ImageView ivCatDrinks = ViewBindings.findChildViewById(rootView, id);
+      if (ivCatDrinks == null) {
+        break missingId;
+      }
+
+      id = R.id.ivCatMeals;
+      ImageView ivCatMeals = ViewBindings.findChildViewById(rootView, id);
+      if (ivCatMeals == null) {
+        break missingId;
+      }
+
+      id = R.id.ivCatSnacks;
+      ImageView ivCatSnacks = ViewBindings.findChildViewById(rootView, id);
+      if (ivCatSnacks == null) {
+        break missingId;
+      }
+
+      id = R.id.ivCreator;
+      ImageView ivCreator = ViewBindings.findChildViewById(rootView, id);
+      if (ivCreator == null) {
+        break missingId;
+      }
+
+      id = R.id.ivHero;
+      ImageView ivHero = ViewBindings.findChildViewById(rootView, id);
+      if (ivHero == null) {
+        break missingId;
+      }
+
+      return new ActivityAboutUsBinding((LinearLayout) rootView, ivBack, ivBanner, ivCatDrinks,
+          ivCatMeals, ivCatSnacks, ivCreator, ivHero);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

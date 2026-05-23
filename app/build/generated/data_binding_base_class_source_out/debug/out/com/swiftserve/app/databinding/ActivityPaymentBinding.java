@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.swiftserve.app.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -27,13 +28,18 @@ public final class ActivityPaymentBinding implements ViewBinding {
   public final MaterialButton btnPlaceOrder;
 
   @NonNull
+  public final TextInputEditText etDeliveryDetails;
+
+  @NonNull
   public final TextView tvTotal;
 
   private ActivityPaymentBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton btnCancel,
-      @NonNull MaterialButton btnPlaceOrder, @NonNull TextView tvTotal) {
+      @NonNull MaterialButton btnPlaceOrder, @NonNull TextInputEditText etDeliveryDetails,
+      @NonNull TextView tvTotal) {
     this.rootView = rootView;
     this.btnCancel = btnCancel;
     this.btnPlaceOrder = btnPlaceOrder;
+    this.etDeliveryDetails = etDeliveryDetails;
     this.tvTotal = tvTotal;
   }
 
@@ -76,13 +82,20 @@ public final class ActivityPaymentBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etDeliveryDetails;
+      TextInputEditText etDeliveryDetails = ViewBindings.findChildViewById(rootView, id);
+      if (etDeliveryDetails == null) {
+        break missingId;
+      }
+
       id = R.id.tvTotal;
       TextView tvTotal = ViewBindings.findChildViewById(rootView, id);
       if (tvTotal == null) {
         break missingId;
       }
 
-      return new ActivityPaymentBinding((LinearLayout) rootView, btnCancel, btnPlaceOrder, tvTotal);
+      return new ActivityPaymentBinding((LinearLayout) rootView, btnCancel, btnPlaceOrder,
+          etDeliveryDetails, tvTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

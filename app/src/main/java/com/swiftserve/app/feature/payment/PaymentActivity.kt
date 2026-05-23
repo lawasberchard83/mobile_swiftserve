@@ -15,21 +15,27 @@ class PaymentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val totalAmount = intent.getDoubleExtra("total_amount", 0.0)
+        val orderItems = intent.getStringExtra("order_items") ?: ""
         binding.tvTotal.text = "₱%.2f".format(totalAmount)
 
         binding.btnPlaceOrder.setOnClickListener {
             val token = com.swiftserve.app.core.utils.SessionManager.getBearerToken(this)
-            val userId = token.removePrefix("supabase_user_").toIntOrNull() ?: 1
+            val userId = token.substringAfter("supabase_user_").toIntOrNull() ?: 1
+            val deliveryDetails = binding.etDeliveryDetails.text.toString().trim()
 
             val request = com.swiftserve.app.core.model.CreateOrderRequest(
                 userId = userId,
                 status = "Pending",
-                total = totalAmount
+                total = totalAmount,
+                totalAmount = totalAmount,
+                items = orderItems,
+                shippingAddress = if (deliveryDetails.isNotEmpty()) deliveryDetails else null
             )
 
             com.swiftserve.app.core.api.RetrofitClient.instance.createOrder(request).enqueue(object : retrofit2.Callback<List<com.swiftserve.app.core.model.Order>> {
                 override fun onResponse(call: retrofit2.Call<List<com.swiftserve.app.core.model.Order>>, response: retrofit2.Response<List<com.swiftserve.app.core.model.Order>>) {
                     if (response.isSuccessful) {
+                        com.swiftserve.app.core.utils.CartManager.clearCart(this@PaymentActivity)
                         android.widget.Toast.makeText(this@PaymentActivity, "Order placed successfully!", android.widget.Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@PaymentActivity, AfterPaymentActivity::class.java))
                         finish()

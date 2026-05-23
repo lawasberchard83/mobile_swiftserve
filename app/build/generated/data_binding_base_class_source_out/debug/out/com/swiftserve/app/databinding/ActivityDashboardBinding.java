@@ -4,7 +4,9 @@ package com.swiftserve.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.textfield.TextInputEditText;
 import com.swiftserve.app.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 import java.lang.NullPointerException;
@@ -23,7 +26,31 @@ public final class ActivityDashboardBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final TextView chipAll;
+
+  @NonNull
+  public final TextView chipDrinks;
+
+  @NonNull
+  public final TextView chipMeals;
+
+  @NonNull
+  public final TextView chipSnacks;
+
+  @NonNull
+  public final TextInputEditText etSearch;
+
+  @NonNull
+  public final ImageView ivCart;
+
+  @NonNull
+  public final ImageView ivOrders;
+
+  @NonNull
   public final CircleImageView ivProfile;
+
+  @NonNull
+  public final ImageView ivSaved;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -34,11 +61,22 @@ public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
   public final SwipeRefreshLayout swipeRefresh;
 
-  private ActivityDashboardBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull CircleImageView ivProfile, @NonNull ProgressBar progressBar,
-      @NonNull RecyclerView rvProducts, @NonNull SwipeRefreshLayout swipeRefresh) {
+  private ActivityDashboardBinding(@NonNull CoordinatorLayout rootView, @NonNull TextView chipAll,
+      @NonNull TextView chipDrinks, @NonNull TextView chipMeals, @NonNull TextView chipSnacks,
+      @NonNull TextInputEditText etSearch, @NonNull ImageView ivCart, @NonNull ImageView ivOrders,
+      @NonNull CircleImageView ivProfile, @NonNull ImageView ivSaved,
+      @NonNull ProgressBar progressBar, @NonNull RecyclerView rvProducts,
+      @NonNull SwipeRefreshLayout swipeRefresh) {
     this.rootView = rootView;
+    this.chipAll = chipAll;
+    this.chipDrinks = chipDrinks;
+    this.chipMeals = chipMeals;
+    this.chipSnacks = chipSnacks;
+    this.etSearch = etSearch;
+    this.ivCart = ivCart;
+    this.ivOrders = ivOrders;
     this.ivProfile = ivProfile;
+    this.ivSaved = ivSaved;
     this.progressBar = progressBar;
     this.rvProducts = rvProducts;
     this.swipeRefresh = swipeRefresh;
@@ -71,9 +109,57 @@ public final class ActivityDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.chipAll;
+      TextView chipAll = ViewBindings.findChildViewById(rootView, id);
+      if (chipAll == null) {
+        break missingId;
+      }
+
+      id = R.id.chipDrinks;
+      TextView chipDrinks = ViewBindings.findChildViewById(rootView, id);
+      if (chipDrinks == null) {
+        break missingId;
+      }
+
+      id = R.id.chipMeals;
+      TextView chipMeals = ViewBindings.findChildViewById(rootView, id);
+      if (chipMeals == null) {
+        break missingId;
+      }
+
+      id = R.id.chipSnacks;
+      TextView chipSnacks = ViewBindings.findChildViewById(rootView, id);
+      if (chipSnacks == null) {
+        break missingId;
+      }
+
+      id = R.id.etSearch;
+      TextInputEditText etSearch = ViewBindings.findChildViewById(rootView, id);
+      if (etSearch == null) {
+        break missingId;
+      }
+
+      id = R.id.ivCart;
+      ImageView ivCart = ViewBindings.findChildViewById(rootView, id);
+      if (ivCart == null) {
+        break missingId;
+      }
+
+      id = R.id.ivOrders;
+      ImageView ivOrders = ViewBindings.findChildViewById(rootView, id);
+      if (ivOrders == null) {
+        break missingId;
+      }
+
       id = R.id.ivProfile;
       CircleImageView ivProfile = ViewBindings.findChildViewById(rootView, id);
       if (ivProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.ivSaved;
+      ImageView ivSaved = ViewBindings.findChildViewById(rootView, id);
+      if (ivSaved == null) {
         break missingId;
       }
 
@@ -95,7 +181,8 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((CoordinatorLayout) rootView, ivProfile, progressBar,
+      return new ActivityDashboardBinding((CoordinatorLayout) rootView, chipAll, chipDrinks,
+          chipMeals, chipSnacks, etSearch, ivCart, ivOrders, ivProfile, ivSaved, progressBar,
           rvProducts, swipeRefresh);
     }
     String missingId = rootView.getResources().getResourceName(id);

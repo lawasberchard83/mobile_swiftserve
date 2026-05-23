@@ -10,7 +10,8 @@ import com.swiftserve.app.databinding.ItemProductBinding
 
 class ProductAdapter(
     private val onAddToCartClick: (Product) -> Unit,
-    private val onSaveForLaterClick: (Product) -> Unit
+    private val onSaveForLaterClick: (Product) -> Unit,
+    private val onProductClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private val products = mutableListOf<Product>()
@@ -54,6 +55,10 @@ class ProductAdapter(
 
             binding.btnSaveForLater.setOnClickListener {
                 onSaveForLaterClick(product)
+            }
+
+            binding.root.setOnClickListener {
+                onProductClick(product)
             }
         }
     }

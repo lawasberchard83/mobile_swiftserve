@@ -17,6 +17,7 @@
             android:layout_height="200dp">
 
             <ImageView
+                android:id="@+id/ivProductImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -24,13 +25,16 @@
 
             <!-- Close button in top right -->
             <ImageView
+                android:id="@+id/btnClose"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="16dp"
                 android:src="?attr/actionModeCloseDrawable"
                 app:tint="#FFFFFF"
-                android:background="@drawable/bg_skeleton" />
+                android:background="@drawable/bg_skeleton"
+                android:clickable="true"
+                android:focusable="true" />
         </RelativeLayout>
 
         <LinearLayout
@@ -40,6 +44,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tvProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Berry Blast Smoothie"
@@ -55,6 +60,7 @@
                 android:layout_marginTop="4dp">
 
                 <TextView
+                    android:id="@+id/tvProductRating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="⭐ 4.5 rating"
@@ -63,6 +69,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvProductDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="A refreshing blend of strawberries, banana, and yogurt. Perfect pick-me-up between classes."
@@ -79,6 +86,7 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
+                    android:id="@+id/tvProductPrice"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -97,14 +105,18 @@
                     android:padding="4dp">
 
                     <TextView
+                        android:id="@+id/btnMinus"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:text="-"
                         android:gravity="center"
                         android:textSize="16sp"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/text_primary"
+                        android:clickable="true"
+                        android:focusable="true" />
 
                     <TextView
+                        android:id="@+id/tvQuantity"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:text="1"
@@ -114,17 +126,21 @@
                         android:textColor="@color/text_primary" />
 
                     <TextView
+                        android:id="@+id/btnPlus"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:text="+"
                         android:gravity="center"
                         android:textSize="16sp"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/text_primary"
+                        android:clickable="true"
+                        android:focusable="true" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddToCart"
                 style="@style/Widget.SwiftServe.Button.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"

@@ -27,6 +27,9 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final MaterialButton btnRegister;
 
   @NonNull
+  public final TextInputEditText etAddress;
+
+  @NonNull
   public final TextInputEditText etConfirmPassword;
 
   @NonNull
@@ -46,6 +49,9 @@ public final class ActivityRegisterBinding implements ViewBinding {
 
   @NonNull
   public final ProgressBar progressBar;
+
+  @NonNull
+  public final TextInputLayout tilAddress;
 
   @NonNull
   public final TextInputLayout tilConfirmPassword;
@@ -69,15 +75,17 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final TextView tvLogin;
 
   private ActivityRegisterBinding(@NonNull ScrollView rootView, @NonNull MaterialButton btnRegister,
-      @NonNull TextInputEditText etConfirmPassword, @NonNull TextInputEditText etEmail,
-      @NonNull TextInputEditText etFirstName, @NonNull TextInputEditText etLastName,
-      @NonNull TextInputEditText etPassword, @NonNull TextInputEditText etPhone,
-      @NonNull ProgressBar progressBar, @NonNull TextInputLayout tilConfirmPassword,
+      @NonNull TextInputEditText etAddress, @NonNull TextInputEditText etConfirmPassword,
+      @NonNull TextInputEditText etEmail, @NonNull TextInputEditText etFirstName,
+      @NonNull TextInputEditText etLastName, @NonNull TextInputEditText etPassword,
+      @NonNull TextInputEditText etPhone, @NonNull ProgressBar progressBar,
+      @NonNull TextInputLayout tilAddress, @NonNull TextInputLayout tilConfirmPassword,
       @NonNull TextInputLayout tilEmail, @NonNull TextInputLayout tilFirstName,
       @NonNull TextInputLayout tilLastName, @NonNull TextInputLayout tilPassword,
       @NonNull TextInputLayout tilPhone, @NonNull TextView tvLogin) {
     this.rootView = rootView;
     this.btnRegister = btnRegister;
+    this.etAddress = etAddress;
     this.etConfirmPassword = etConfirmPassword;
     this.etEmail = etEmail;
     this.etFirstName = etFirstName;
@@ -85,6 +93,7 @@ public final class ActivityRegisterBinding implements ViewBinding {
     this.etPassword = etPassword;
     this.etPhone = etPhone;
     this.progressBar = progressBar;
+    this.tilAddress = tilAddress;
     this.tilConfirmPassword = tilConfirmPassword;
     this.tilEmail = tilEmail;
     this.tilFirstName = tilFirstName;
@@ -124,6 +133,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
       id = R.id.btnRegister;
       MaterialButton btnRegister = ViewBindings.findChildViewById(rootView, id);
       if (btnRegister == null) {
+        break missingId;
+      }
+
+      id = R.id.etAddress;
+      TextInputEditText etAddress = ViewBindings.findChildViewById(rootView, id);
+      if (etAddress == null) {
         break missingId;
       }
 
@@ -169,6 +184,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tilAddress;
+      TextInputLayout tilAddress = ViewBindings.findChildViewById(rootView, id);
+      if (tilAddress == null) {
+        break missingId;
+      }
+
       id = R.id.tilConfirmPassword;
       TextInputLayout tilConfirmPassword = ViewBindings.findChildViewById(rootView, id);
       if (tilConfirmPassword == null) {
@@ -211,9 +232,10 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((ScrollView) rootView, btnRegister, etConfirmPassword,
-          etEmail, etFirstName, etLastName, etPassword, etPhone, progressBar, tilConfirmPassword,
-          tilEmail, tilFirstName, tilLastName, tilPassword, tilPhone, tvLogin);
+      return new ActivityRegisterBinding((ScrollView) rootView, btnRegister, etAddress,
+          etConfirmPassword, etEmail, etFirstName, etLastName, etPassword, etPhone, progressBar,
+          tilAddress, tilConfirmPassword, tilEmail, tilFirstName, tilLastName, tilPassword,
+          tilPhone, tvLogin);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

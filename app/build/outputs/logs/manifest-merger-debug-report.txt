@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-70:12
+ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:2:1-78:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\BERCHARD\.gradle\caches\transforms-3\de56ecbc03d25dfce0efee6c471bd0c8\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\BERCHARD\.gradle\caches\transforms-3\bec7de6f5493746bd6b85bdfc260f89d\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\BERCHARD\.gradle\caches\transforms-3\5b1e847eb52da651a87fd4b6c66d222b\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -83,8 +83,8 @@ ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\An
 	android:name
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:7:22-73
 application
-ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:9:5-68:19
-INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:9:5-68:19
+ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:9:5-76:19
+INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:9:5-76:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\BERCHARD\.gradle\caches\transforms-3\bec7de6f5493746bd6b85bdfc260f89d\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\BERCHARD\.gradle\caches\transforms-3\bec7de6f5493746bd6b85bdfc260f89d\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\BERCHARD\.gradle\caches\transforms-3\5b1e847eb52da651a87fd4b6c66d222b\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -157,48 +157,60 @@ ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\An
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:38:13-37
 	android:name
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:37:13-64
-activity#com.swiftserve.app.feature.profile.ProfileActivity
+activity#com.swiftserve.app.feature.dashboard.SavedActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:40:9-42:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:41:13-60
-activity#com.swiftserve.app.feature.profile.UpdateProfileActivity
+activity#com.swiftserve.app.feature.dashboard.MyOrdersActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:44:9-46:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:45:13-66
-activity#com.swiftserve.app.feature.profile.ChangePasswordActivity
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:45:13-63
+activity#com.swiftserve.app.feature.profile.ProfileActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:48:9-50:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:50:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:49:13-67
-activity#com.swiftserve.app.feature.checkout.CheckoutActivity
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:49:13-60
+activity#com.swiftserve.app.feature.profile.UpdateProfileActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:52:9-54:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:54:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:53:13-62
-activity#com.swiftserve.app.feature.payment.PaymentActivity
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:53:13-66
+activity#com.swiftserve.app.feature.profile.ChangePasswordActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:56:9-58:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:58:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:57:13-60
-activity#com.swiftserve.app.feature.payment.AfterPaymentActivity
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:57:13-67
+activity#com.swiftserve.app.feature.checkout.CheckoutActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:60:9-62:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:62:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:61:13-65
-activity#com.swiftserve.app.feature.about.AboutUsActivity
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:61:13-62
+activity#com.swiftserve.app.feature.payment.PaymentActivity
 ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:64:9-66:40
 	android:exported
 		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:66:13-37
 	android:name
-		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:65:13-58
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:65:13-60
+activity#com.swiftserve.app.feature.payment.AfterPaymentActivity
+ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:68:9-70:40
+	android:exported
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:70:13-37
+	android:name
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:69:13-65
+activity#com.swiftserve.app.feature.about.AboutUsActivity
+ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:72:9-74:40
+	android:exported
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:74:13-37
+	android:name
+		ADDED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml:73:13-58
 uses-sdk
 INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\BERCHARD\Desktop\mob_swift\mobile_swiftserve\app\src\main\AndroidManifest.xml
